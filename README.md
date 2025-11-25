@@ -77,4 +77,168 @@ En cuanto a la programación, se ha desarrollado la primera versión del código
 
 Con este sprint dejamos listo un prototipo jugable básico sobre el que seguiremos iterando en el Sprint 2, donde se implementarán por completo los módulos de juego y el resto de la lógica.
 
+Codigo:
+
+```cpp
+#include <Keypad.h>
+#include <LiquidCrystal_I2C.h>
+
+LiquidCrystal_I2C lcd(0x20, 16, 2);
+
+// Pines
+const int BUTTON_PIN = A0;
+const int POT_PIN = A1;
+const int LED_PIN = 10;
+const int SPEAKER_PIN = 13;
+
+// Juego
+int minutos = 1;
+int segundos = 59;
+int vidas = 3;
+int tareas = 11;
+int presion = 100;
+
+// Código secreto
+char codigo[6];
+char entrada[6];
+int idx = 0;
+
+// Keypad
+char teclas[4][4] = {
+  {'1','2','3','A'},
+  {'4','5','6','B'},
+  {'7','8','9','C'},
+  {'*','0','#','D'}
+};
+byte filas[4] = {9,8,7,6};
+byte cols[4]  = {5,4,3,2};
+
+Keypad keypad = Keypad(makeKeymap(teclas), filas, cols, 4, 4);
+
+unsigned long t1, tLatido;
+
+// ---- FUNCIONES ----
+
+void generarCodigo() {
+  char chars[] = "0123456789ABCD";
+  for (int i = 0; i < 5; i++) {
+    codigo[i] = chars[random(14)];
+  }
+  codigo[5] = '\0';
+}
+
+void pantalla() {
+  lcd.clear();
+  lcd.setCursor(0,0);
+  lcd.print(minutos); lcd.print(":");
+  if (segundos < 10) lcd.print("0");
+  lcd.print(segundos);
+
+  lcd.setCursor(9,0);
+  lcd.print("V:");
+  lcd.print(vidas);
+
+  lcd.setCursor(0,1);
+  lcd.print("P:");
+  lcd.print(presion);
+
+  lcd.setCursor(9,1);
+  lcd.print("T:");
+  lcd.print(tareas);
+}
+
+void reiniciar() {
+  minutos = 1;
+  segundos = 59;
+  vidas = 3;
+  tareas = 11;
+  presion = 100;
+  idx = 0;
+  generarCodigo();
+}
+
+// ---- SETUP ----
+void setup() {
+  lcd.init();
+  lcd.backlight();
+
+  pinMode(BUTTON_PIN, INPUT);
+  pinMode(LED_PIN, OUTPUT);
+  pinMode(SPEAKER_PIN, OUTPUT);
+
+  randomSeed(analogRead(A3));
+  reiniciar();
+
+  lcd.clear();
+  lcd.print("Presiona Boton");
+  while (digitalRead(BUTTON_PIN) == LOW);
+  lcd.clear();
+}
+
+// ---- LOOP ----
+void loop() {
+
+  // Latido
+  if (millis() - tLatido > 500) {
+    digitalWrite(SPEAKER_PIN, !digitalRead(SPEAKER_PIN));
+    tLatido = millis();
+  }
+
+  // Tiempo
+  if (millis() - t1 > 1000) {
+    t1 = millis();
+    if (segundos > 0) segundos--;
+    else if (minutos > 0) { minutos--; segundos = 59; }
+    else vidas = 0;
+  }
+
+  // Presión
+  if (digitalRead(BUTTON_PIN) == HIGH) presion--;
+  else presion++;
+
+  // Potenciómetro
+  int pot = analogRead(POT_PIN);
+  if (pot > 480 && pot < 540) {
+    digitalWrite(LED_PIN, HIGH);
+    tareas--;
+    delay(500);
+  } else {
+    digitalWrite(LED_PIN, LOW);
+  }
+
+  // Keypad
+  char k = keypad.getKey();
+  if (k) {
+    entrada[idx++] = k;
+    if (idx == 5) {
+      entrada[5] = '\0';
+      if (strcmp(entrada, codigo) == 0) tareas--;
+      else vidas--;
+      idx = 0;
+    }
+  }
+
+  // Dibujar pantalla
+  pantalla();
+
+  // Pérdida
+  if (vidas <= 0 || presion <= 0 || presion >= 1000) {
+    lcd.clear();
+    lcd.print("BOOM!");
+    delay(1500);
+    reiniciar();
+  }
+
+  // Victoria
+  if (tareas <= 0) {
+    lcd.clear();
+    lcd.print("Desactivada!");
+    delay(1500);
+    reiniciar();
+  }
+
+  delay(20);
+}
+```cpp
+
 
