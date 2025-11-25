@@ -239,6 +239,5 @@ void loop() {
 
   delay(20);
 }
-```cpp
 
 
