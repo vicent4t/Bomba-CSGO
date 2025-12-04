@@ -1,67 +1,64 @@
 
-Arduino
+## Arduino
 
-Objetivo: Hacer un minijuego de desactivación de bomba con Arduino, usando módulos de Código Morse y “caja fuerte” (safe cracker) contrarreloj.
+### Objetivo: Hacer un minijuego de desactivación de bomba con Arduino, usando módulos de Código Morse y “caja fuerte” (safe cracker) contrarreloj.
 
-Equipo: Pau Albiol Duato y Vicent Benabent
+### Equipo: Pau Albiol Duato y Vicent Benavent
 
-Roles: Pau Albiol Duato (Montaje en físico / Cableado y colocación de componentes / Programación y lógica del minijuego)
-Vicent Benabent (Montaje en Tinkercad)
+### Roles: Pau Albiol Duato (Montaje en físico / Cableado y colocación de componentes / Programación y lógica del minijuego) Vicent Benavent (Montaje en Tinkercad)
 
-Plan de Sprints:
+## Plan de Sprints:
 
-Sprint 1: Definir las mecánicas del juego (tiempo, presión, vidas y módulos), hacer el boceto del circuito en Tinkercad y subir las primeras versiones del código (temporizador y presión).
+### Sprint 1: Definir las mecánicas del juego (tiempo, presión, vidas y módulos), hacer el boceto del circuito en Tinkercad y subir las primeras versiones del código (temporizador y presión).
 
-Sprint 2: Prototipo más avanzado (circuito completo en Tinkercad, LCD mostrando datos, lectura de potenciómetro, botón y teclado, implementación de Morse y safe cracker) y lista definitiva de sensores/actuadores.
+### Sprint 2: Prototipo más avanzado (circuito completo en Tinkercad, LCD mostrando datos, lectura de potenciómetro, botón y teclado, implementación de Morse y safe cracker) y lista definitiva de sensores/actuadores.
 
-LiveDemo: Funcionamiento del prototipo (en físico), explicar las reglas del juego (tiempo límite, gestión de presión y errores de código) y responder a las preguntas.
+### LiveDemo: Funcionamiento del prototipo (en físico), explicar las reglas del juego (tiempo límite, gestión de presión y errores de código) y responder a las preguntas.
 
 
-Sprint 1
+## Sprint 1
 
-Objetivo del sprint:
+### Objetivo del sprint:
 Dejar definido el diseño del minijuego y tener un primer prototipo funcional en Tinkercad con tiempo y presión implementados.
 
 
 
-* Diseño de mecánicas (Pau & Vicent)
+## Diseño de mecánicas (Pau & Vicent)
 
   * Concretar tiempo total de partida, número de vidas y condición de derrota.
   * Definir cómo funciona la presión (valor inicial, velocidad a la que sube, cuánto baja con el botón).
   * Decidir cuántos módulos habrá en total (Morse + safe cracker) y cómo se ganan/completan.
 
-* Boceto del circuito en Tinkercad (Vicent)
+## Boceto del circuito en Tinkercad (Vicent)
 
   * Colocar Arduino, LCD, potenciómetro, botón, teclado 4x4 y zumbador.
   * Hacer el cableado básico suficiente para probar temporizador y presión.
   * Guardar el proyecto y compartir el enlace con Pau.
 
-  Primera versión de código (Pau)
+## Primera versión de código (Pau)
 
   * Configurar librerías (LCD, Keypad si hace falta ya).
   * Implementar el temporizador (minutos/segundos) y mostrarlo en la LCD.
   * Implementar la variable de presión que sube sola con el tiempo y baja al mantener pulsado el botón.
   * Mostrar en pantalla al menos: tiempo restante y presión actual.
 
-  Revisión rápida (Pau & Vicent)
+## Revisión rápida (Pau & Vicent)
 
   * Probar el circuito en Tinkercad y comprobar que tiempo y presión funcionan como se ha diseñado.
   * Anotar errores o mejoras para el Sprint 2.
 
-Entregables Sprint 1
+## Entregables Sprint 1
 
 * Enlace al Tinkercad con el boceto del circuito.
 * Archivo .ino con la primera versión del código comentado.
 * Breve esquema/diagrama con las mecánicas básicas definidas (tiempo, presión, vidas y módulos).
 
 
-
 https://www.tinkercad.com/things/edwomiDdRjm/editel?returnTo=%2Fdashboard%2Fdesigns%2Fcircuits&sharecode=_J3_5_-QxDp3ceBTR7kbHDX_drTWIpASMO7VuU-rxPc
-
 
 <img width="846" height="710" alt="aaa" src="https://github.com/user-attachments/assets/af0a0123-dcdc-4f15-92e8-19857aa54b25" />
 
-Sprint 1
+# Sprint 1
 
 En este primer sprint hemos definido y plasmado las mecánicas básicas del minijuego de desactivación de bomba y hemos creado el primer prototipo funcional en Tinkercad.
 
@@ -77,7 +74,7 @@ En cuanto a la programación, se ha desarrollado la primera versión del código
 
 Con este sprint dejamos listo un prototipo jugable básico sobre el que seguiremos iterando en el Sprint 2, donde se implementarán por completo los módulos de juego y el resto de la lógica.
 
-Codigo:
+## Codigo:
 
 ```cpp
 #include <Keypad.h>
@@ -239,13 +236,15 @@ void loop() {
 
   delay(20);
 }
+```
 
-Sprint 2
-Objetivo del sprint
+## Sprint 2
+
+### Objetivo del sprint
 
 Completar el prototipo del minijuego de desactivación de bomba, con el circuito en Tinkercad más avanzado y el código principal (Morse + safe cracker) ya implementado y funcional a nivel básico.
 
-Tareas
+## Tareas
 
 Pau Albiol Duato
 
@@ -257,7 +256,7 @@ Conectar estos módulos con el sistema de tiempo, presión, vidas y tareas total
 
 Probar el flujo completo de partida (aciertos/fallos, condiciones de victoria y derrota) y ajustar parámetros básicos de dificultad.
 
-Vicent Benabent
+## Vicent Benavent
 
 Completar el circuito en Tinkercad con todos los componentes definitivos (Arduino, LCD, potenciómetro, botón, teclado 4x4, zumbador, etc.).
 
@@ -271,11 +270,9 @@ Elaborar y subir al repositorio la lista definitiva de sensores y componentes (h
 
 Actualizar el README con la evolución del proyecto, problemas encontrados y cómo se han resuelto, y las tareas pendientes para la LiveDemo.
 
-
 <img width="1173" height="743" alt="image" src="https://github.com/user-attachments/assets/c680c8d9-b291-43e6-853a-014b8bd691e9" />
 
-
-Resumen Sprint 2
+# Resumen Sprint 2
 
 En este segundo sprint hemos pasado de un prototipo básico a un circuito y un código mucho más completos y cercanos a la versión final del minijuego.
 El circuito en Tinkercad se ha completado con todos los elementos definitivos (LCD, teclado 4x4, potenciómetro, botón, zumbador y LEDs), y se ha revisado el cableado pensando en el montaje físico.
@@ -284,13 +281,13 @@ A nivel de software, el código se ha ampliado para integrar las mecánicas prin
 
 El README y el archivo hardware.md se han actualizado con la evolución del proyecto, la lista definitiva de componentes y los problemas encontrados junto con sus soluciones, dejando preparado el trabajo para la LiveDemo.
 
-Entregables del Sprint 2
+## Entregables del Sprint 2
 
 Circuito en Tinkercad
 
-Prototipo completo del minijuego de desactivación de bomba.
+## Prototipo completo del minijuego de desactivación de bomba.
 
-Incluye:
+**Incluye:**
 
 Placa Arduino (modelo UNO en el prototipo de Tinkercad).
 
@@ -308,7 +305,7 @@ Varios LEDs con sus resistencias en protoboard.
 
 Lista de sensores y componentes (hardware.md)
 
-Sensores / actuadores:
+**Sensores / actuadores:**
 
 1× Pantalla LCD 16x2.
 
@@ -322,7 +319,7 @@ Sensores / actuadores:
 
 4× LED rojos (indicadores de estado / feedback).
 
-Otros componentes:
+**Otros componentes:**
 
 4× Resistencias para LEDs (≈220 Ω–330 Ω).
 
@@ -332,7 +329,7 @@ Cables de conexión macho-macho/macho-hembra.
 
 Placa Arduino (UNO en Tinkercad; equivalente en el montaje físico).
 
-Esquema de conexiones:
+**Esquema de conexiones:**
 
 Basado en el circuito de Tinkercad mostrado en img/circuito_sprint2.png.
 
