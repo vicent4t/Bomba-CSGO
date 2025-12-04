@@ -64,9 +64,6 @@ Dejar definido el diseño del minijuego y tener un primer prototipo funcional en
 * Archivo .ino con la primera versión del código comentado.
 * Breve esquema/diagrama con las mecánicas básicas definidas (tiempo, presión, vidas y módulos).
 
-
-https://www.tinkercad.com/things/edwomiDdRjm/editel?returnTo=%2Fdashboard%2Fdesigns%2Fcircuits&sharecode=_J3_5_-QxDp3ceBTR7kbHDX_drTWIpASMO7VuU-rxPc
-
 <img width="846" height="710" alt="aaa" src="https://github.com/user-attachments/assets/af0a0123-dcdc-4f15-92e8-19857aa54b25" />
 
 # Sprint 1
@@ -79,9 +76,9 @@ En Tinkercad se ha montado el circuito inicial con Arduino Nano, pantalla LCD, p
 
 En cuanto a la programación, se ha desarrollado la primera versión del código en Arduino. Esta versión incluye:
 
- Un temporizador en minutos y segundos que se muestra en la pantalla LCD.
- Un sistema de presión que parte de un valor inicial, aumenta de forma periódica y puede reducirse manteniendo pulsado el botón.
- Variables de control para las vidas y el número total de módulos a completar, que más adelante se conectarán con el módulo de Código Morse y el “safe cracker”.
+ - Un temporizador en minutos y segundos que se muestra en la pantalla LCD.
+ - Un sistema de presión que parte de un valor inicial, aumenta de forma periódica y puede reducirse manteniendo pulsado el botón.
+ - Variables de control para las vidas y el número total de módulos a completar, que más adelante se conectarán con el módulo de Código Morse y el “safe cracker”.
 
 Con este sprint dejamos listo un prototipo jugable básico sobre el que seguiremos iterando en el Sprint 2, donde se implementarán por completo los módulos de juego y el resto de la lógica.
 
@@ -257,7 +254,7 @@ Completar el prototipo del minijuego de desactivación de bomba, con el circuito
 
 ## Tareas
 
-Pau Albiol Duato
+**Pau Albiol Duato**
 
 Ampliar y refactorizar el código de Arduino para integrar las mecánicas principales:
 
@@ -267,7 +264,7 @@ Conectar estos módulos con el sistema de tiempo, presión, vidas y tareas total
 
 Probar el flujo completo de partida (aciertos/fallos, condiciones de victoria y derrota) y ajustar parámetros básicos de dificultad.
 
-## Vicent Benavent
+**Vicent Benavent**
 
 Completar el circuito en Tinkercad con todos los componentes definitivos (Arduino, LCD, potenciómetro, botón, teclado 4x4, zumbador, etc.).
 
@@ -300,45 +297,45 @@ Circuito en Tinkercad
 
 **Incluye:**
 
-Placa Arduino (modelo UNO en el prototipo de Tinkercad).
+ - Placa Arduino (modelo UNO en el prototipo de Tinkercad).
 
-Pantalla LCD 16x2.
+ - Pantalla LCD 16x2.
 
-Teclado matricial 4x4.
+ - Teclado matricial 4x4.
 
-Potenciómetro (control de “caja fuerte”).
+ - Potenciómetro (control de “caja fuerte”).
 
-Pulsador (control de presión).
+ - Pulsador (control de presión).
 
-Zumbador piezoeléctrico (Código Morse / avisos sonoros).
+ - Zumbador piezoeléctrico (Código Morse / avisos sonoros).
 
-Varios LEDs con sus resistencias en protoboard.
+ - Varios LEDs con sus resistencias en protoboard.
 
 Lista de sensores y componentes (hardware.md)
 
 **Sensores / actuadores:**
 
-1× Pantalla LCD 16x2.
+ - (1×) Pantalla LCD 16x2.
 
-1× Teclado matricial 4x4.
+ - (1×) Teclado matricial 4x4.
 
-1× Potenciómetro (≈10 kΩ).
+ - (1×) Potenciómetro (≈10 kΩ).
 
-1× Pulsador.
+ - (1×) Pulsador.
 
-1× Zumbador piezoeléctrico.
+ - (1×) Zumbador piezoeléctrico.
 
-4× LED rojos (indicadores de estado / feedback).
+ - (4×) LED rojos (indicadores de estado / feedback).
 
 **Otros componentes:**
 
-4× Resistencias para LEDs (≈220 Ω–330 Ω).
+ - (4×) Resistencias para LEDs (≈220 Ω–330 Ω).
 
-1× Protoboard.
+ - (1×) Protoboard.
 
-Cables de conexión macho-macho/macho-hembra.
+ - Cables de conexión macho-macho/macho-hembra.
 
-Placa Arduino (UNO en Tinkercad; equivalente en el montaje físico).
+ - Placa Arduino (UNO en Tinkercad; equivalente en el montaje físico).
 
 **Esquema de conexiones:**
 
