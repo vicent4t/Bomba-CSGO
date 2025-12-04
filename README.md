@@ -240,4 +240,117 @@ void loop() {
   delay(20);
 }
 
+Sprint 2
+Objetivo del sprint
+
+Completar el prototipo del minijuego de desactivación de bomba, con el circuito en Tinkercad más avanzado y el código principal (Morse + safe cracker) ya implementado y funcional a nivel básico.
+
+Tareas
+
+Pau Albiol Duato
+
+Ampliar y refactorizar el código de Arduino para integrar las mecánicas principales:
+
+Módulo de “caja fuerte” (safe cracker) usando el potenciómetro.
+
+Conectar estos módulos con el sistema de tiempo, presión, vidas y tareas totales.
+
+Probar el flujo completo de partida (aciertos/fallos, condiciones de victoria y derrota) y ajustar parámetros básicos de dificultad.
+
+Vicent Benabent
+
+Completar el circuito en Tinkercad con todos los componentes definitivos (Arduino, LCD, potenciómetro, botón, teclado 4x4, zumbador, etc.).
+
+Revisar y mejorar el cableado para que sea coherente con el futuro montaje físico.
+
+Subir capturas del circuito y el archivo del proyecto al repositorio.
+
+Pau Albiol Duato & Vicent Benabent
+
+Elaborar y subir al repositorio la lista definitiva de sensores y componentes (hardware.md).
+
+Actualizar el README con la evolución del proyecto, problemas encontrados y cómo se han resuelto, y las tareas pendientes para la LiveDemo.
+
+
+<img width="1173" height="743" alt="image" src="https://github.com/user-attachments/assets/c680c8d9-b291-43e6-853a-014b8bd691e9" />
+
+
+Resumen Sprint 2
+
+En este segundo sprint hemos pasado de un prototipo básico a un circuito y un código mucho más completos y cercanos a la versión final del minijuego.
+El circuito en Tinkercad se ha completado con todos los elementos definitivos (LCD, teclado 4x4, potenciómetro, botón, zumbador y LEDs), y se ha revisado el cableado pensando en el montaje físico.
+
+A nivel de software, el código se ha ampliado para integrar las mecánicas principales del juego: el módulo de Código Morse usando el zumbador y el teclado, y el módulo de “caja fuerte” utilizando el potenciómetro. Estos módulos ya afectan al sistema de tiempo, presión, vidas y tareas, permitiendo jugar partidas completas con condiciones de victoria y derrota.
+
+El README y el archivo hardware.md se han actualizado con la evolución del proyecto, la lista definitiva de componentes y los problemas encontrados junto con sus soluciones, dejando preparado el trabajo para la LiveDemo.
+
+Entregables del Sprint 2
+
+Circuito en Tinkercad
+
+Prototipo completo del minijuego de desactivación de bomba.
+
+Incluye:
+
+Placa Arduino (modelo UNO en el prototipo de Tinkercad).
+
+Pantalla LCD 16x2.
+
+Teclado matricial 4x4.
+
+Potenciómetro (control de “caja fuerte”).
+
+Pulsador (control de presión).
+
+Zumbador piezoeléctrico (Código Morse / avisos sonoros).
+
+Varios LEDs con sus resistencias en protoboard.
+
+Lista de sensores y componentes (hardware.md)
+
+Sensores / actuadores:
+
+1× Pantalla LCD 16x2.
+
+1× Teclado matricial 4x4.
+
+1× Potenciómetro (≈10 kΩ).
+
+1× Pulsador.
+
+1× Zumbador piezoeléctrico.
+
+4× LED rojos (indicadores de estado / feedback).
+
+Otros componentes:
+
+4× Resistencias para LEDs (≈220 Ω–330 Ω).
+
+1× Protoboard.
+
+Cables de conexión macho-macho/macho-hembra.
+
+Placa Arduino (UNO en Tinkercad; equivalente en el montaje físico).
+
+Esquema de conexiones:
+
+Basado en el circuito de Tinkercad mostrado en img/circuito_sprint2.png.
+
+El LCD, el teclado 4x4, el potenciómetro, el pulsador, el zumbador y los LEDs están conectados a pines digitales/analógicos de la placa según dicho esquema.
+
+README actualizado
+
+Resumen del estado del proyecto en Sprint 2.
+
+Evolución desde el Sprint 1 (circuito completado y mecánicas principales implementadas).
+
+Problemas encontrados (ajuste de tiempos, lectura del potenciómetro, gestión de entradas del teclado, etc.) y soluciones aplicadas.
+
+Lista de tareas pendientes para la LiveDemo:
+
+Montaje físico definitivo.
+
+Ajuste de dificultad (velocidad de presión, tiempo disponible, margen de error en safe cracker).
+
+Pruebas finales de estabilidad.
 
