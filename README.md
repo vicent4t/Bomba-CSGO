@@ -338,14 +338,6 @@ Basado en el circuito de Tinkercad mostrado en img/circuito_sprint2.png.
 
 El LCD, el teclado 4x4, el potenciómetro, el pulsador, el zumbador y los LEDs están conectados a pines digitales/analógicos de la placa según dicho esquema.
 
-README actualizado
-
-Resumen del estado del proyecto en Sprint 2.
-
-Evolución desde el Sprint 1 (circuito completado y mecánicas principales implementadas).
-
-Problemas encontrados (ajuste de tiempos, lectura del potenciómetro, gestión de entradas del teclado, etc.) y soluciones aplicadas.
-
 Lista de tareas pendientes para la LiveDemo:
 
 Montaje físico definitivo.
@@ -354,3 +346,189 @@ Ajuste de dificultad (velocidad de presión, tiempo disponible, margen de error 
 
 Pruebas finales de estabilidad.
 
+## Code:
+
+```cpp
+#include <Keypad.h>
+#include <LiquidCrystal_I2C.h>
+
+// LCD igual que en el código original que funciona
+LiquidCrystal_I2C lcd_1(0x27, 16, 2);
+
+// Pines
+const int BUTTON_PIN = A0;
+const int POT_PIN    = A1;
+const int LED_PIN    = 10;
+const int SPEAKER_PIN = 13;
+
+// Juego
+int minutos = 1;
+int segundos = 59;
+int vidas = 3;
+int tareas = 11;
+int presion = 100;
+
+// Código secreto
+char codigo[6];
+char entrada[6];
+int idx = 0;
+
+// Keypad
+char teclas[4][4] = {
+  {'1','2','3','A'},
+  {'4','5','6','B'},
+  {'7','8','9','C'},
+  {'*','0','#','D'}
+};
+byte filas[4] = {9,8,7,6};
+byte cols[4]  = {5,4,3,2};
+
+Keypad keypad = Keypad(makeKeymap(teclas), filas, cols, 4, 4);
+
+unsigned long t1, tLatido;
+
+// ---- FUNCIONES ----
+
+void generarCodigo() {
+  const char chars[] = "0123456789ABCD";
+  for (int i = 0; i < 5; i++) {
+    codigo[i] = chars[random(14)];
+  }
+  codigo[5] = '\0';
+}
+
+void pantalla() {
+  lcd_1.clear();
+
+  lcd_1.setCursor(0,0);
+  lcd_1.print(minutos);
+  lcd_1.print(":");
+  if (segundos < 10) lcd_1.print("0");
+  lcd_1.print(segundos);
+
+  lcd_1.setCursor(9,0);
+  lcd_1.print("V:");
+  lcd_1.print(vidas);
+
+  lcd_1.setCursor(0,1);
+  lcd_1.print("P:");
+  lcd_1.print(presion);
+
+  lcd_1.setCursor(9,1);
+  lcd_1.print("T:");
+  lcd_1.print(tareas);
+}
+
+void reiniciar() {
+  minutos = 1;
+  segundos = 59;
+  vidas = 3;
+  tareas = 11;
+  presion = 100;
+  idx = 0;
+  generarCodigo();
+}
+
+// ---- SETUP ----
+void setup() {
+  // MISMA FORMA QUE EN TU CÓDIGO ORIGINAL
+  lcd_1.backlight();
+  lcd_1.begin(16, 2);
+
+  pinMode(BUTTON_PIN, INPUT);
+  pinMode(LED_PIN, OUTPUT);
+  pinMode(SPEAKER_PIN, OUTPUT);
+
+  randomSeed(analogRead(A3));
+  reiniciar();
+
+  lcd_1.clear();
+  lcd_1.setCursor(0,0);
+  lcd_1.print("Presiona Boton");
+
+  // Esperar a que se pulse el botón para empezar
+  while (digitalRead(BUTTON_PIN) == LOW) {
+    // Esperando…
+  }
+
+  lcd_1.clear();
+}
+
+// ---- LOOP ----
+void loop() {
+
+  // Latido de la bomba en el altavoz
+  if (millis() - tLatido > 500) {
+    digitalWrite(SPEAKER_PIN, !digitalRead(SPEAKER_PIN));
+    tLatido = millis();
+  }
+
+  // Tiempo
+  if (millis() - t1 > 1000) {
+    t1 = millis();
+    if (segundos > 0) {
+      segundos--;
+    } else if (minutos > 0) {
+      minutos--;
+      segundos = 59;
+    } else {
+      vidas = 0;
+    }
+  }
+
+  // Presión (sube sola, baja con el botón)
+  if (digitalRead(BUTTON_PIN) == HIGH) {
+    presion--;
+  } else {
+    presion++;
+  }
+
+  // Potenciómetro → “safe cracker”
+  int pot = analogRead(POT_PIN);
+  if (pot > 480 && pot < 540) {
+    digitalWrite(LED_PIN, HIGH);
+    tareas--;
+    delay(500);
+  } else {
+    digitalWrite(LED_PIN, LOW);
+  }
+
+  // Keypad → código secreto
+  char k = keypad.getKey();
+  if (k) {
+    entrada[idx++] = k;
+    if (idx == 5) {
+      entrada[5] = '\0';
+      if (strcmp(entrada, codigo) == 0) {
+        tareas--;
+      } else {
+        vidas--;
+      }
+      idx = 0;
+    }
+  }
+
+  // Dibujar pantalla
+  pantalla();
+
+  // Pérdida
+  if (vidas <= 0 || presion <= 0 || presion >= 1000) {
+    lcd_1.clear();
+    lcd_1.setCursor(0,0);
+    lcd_1.print("BOOM!");
+    delay(1500);
+    reiniciar();
+  }
+
+  // Victoria
+  if (tareas <= 0) {
+    lcd_1.clear();
+    lcd_1.setCursor(0,0);
+    lcd_1.print("Desactivada!");
+    delay(1500);
+    reiniciar();
+  }
+
+  delay(20);
+}
+```
