@@ -27,12 +27,10 @@ Prototipo más avanzado (circuito completo en Tinkercad, LCD mostrando datos, le
 
 Funcionamiento del prototipo (en físico), explicar las reglas del juego (tiempo límite, gestión de presión y errores de código) y responder a las preguntas.
 
-## Sprint 1
-
+## SPRINT 1
 
 ## Objetivo del sprint:
 Dejar definido el diseño del minijuego y tener un primer prototipo funcional en Tinkercad con tiempo y presión implementados.
-
 
 ## Diseño de mecánicas (Pau & Vicent)
 
@@ -66,7 +64,7 @@ Dejar definido el diseño del minijuego y tener un primer prototipo funcional en
 
 <img width="846" height="710" alt="aaa" src="https://github.com/user-attachments/assets/af0a0123-dcdc-4f15-92e8-19857aa54b25" />
 
-# Sprint 1
+# SPRINT 1
 
 En este primer sprint hemos definido y plasmado las mecánicas básicas del minijuego de desactivación de bomba y hemos creado el primer prototipo funcional en Tinkercad.
 
@@ -246,7 +244,7 @@ void loop() {
 }
 ```
 
-# Sprint 2
+# SPRINT 2
 
 ## Objetivo del sprint
 
@@ -280,7 +278,7 @@ Completar el prototipo del minijuego de desactivación de bomba, con el circuito
 
 <img width="1173" height="743" alt="image" src="https://github.com/user-attachments/assets/c680c8d9-b291-43e6-853a-014b8bd691e9" />
 
-# Resumen Sprint 2
+# RESUMEN SPRINT 2
 
 En este segundo sprint hemos pasado de un prototipo básico a un circuito y un código mucho más completos y cercanos a la versión final del minijuego.
 El circuito en Tinkercad se ha completado con todos los elementos definitivos (LCD, teclado 4x4, potenciómetro, botón, zumbador y LEDs), y se ha revisado el cableado pensando en el montaje físico.
@@ -291,7 +289,7 @@ El README y el archivo hardware.md se han actualizado con la evolución del proy
 
 ## Entregables del Sprint 2
 
-Circuito en Tinkercad
+ - Circuito en Tinkercad
 
 ## Prototipo completo del minijuego de desactivación de bomba.
 
