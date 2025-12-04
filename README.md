@@ -356,7 +356,7 @@ El README y el archivo hardware.md se han actualizado con la evolución del proy
 #include <LiquidCrystal_I2C.h>
 
 // LCD igual que en el código original que funciona
-LiquidCrystal_I2C lcd_1(0x27, 16, 2);
+LiquidCrystal_I2C lcd_1(0, 20, 4);
 
 // Pines
 const int BUTTON_PIN = A0;
@@ -534,4 +534,5 @@ void loop() {
 
   delay(20);
 }
+
 ```
