@@ -337,9 +337,9 @@ El README y el archivo hardware.md se han actualizado con la evolución del proy
 
 **Esquema de conexiones:**
 
-Basado en el circuito de Tinkercad mostrado en img/circuito_sprint2.png.
+ - Basado en el circuito de Tinkercad mostrado en img/circuito_sprint2.png.
 
-El LCD, el teclado 4x4, el potenciómetro, el pulsador, el zumbador y los LEDs están conectados a pines digitales/analógicos de la placa según dicho esquema.
+ - El LCD, el teclado 4x4, el potenciómetro, el pulsador, el zumbador y los LEDs están conectados a pines digitales/analógicos de la placa según dicho esquema.
 
 **Lista de tareas pendientes para la LiveDemo:**
 
