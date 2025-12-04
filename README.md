@@ -1,26 +1,37 @@
 
 ## Arduino
 
-### Objetivo: Hacer un minijuego de desactivación de bomba con Arduino, usando módulos de Código Morse y “caja fuerte” (safe cracker) contrarreloj.
+### Objetivo
 
-### Equipo: Pau Albiol Duato y Vicent Benavent
+Hacer un minijuego de desactivación de bomba con Arduino, usando módulos de Código Morse y “caja fuerte” (safe cracker) contrarreloj.
 
-### Roles: Pau Albiol Duato (Montaje en físico / Cableado y colocación de componentes / Programación y lógica del minijuego) Vicent Benavent (Montaje en Tinkercad)
+### Equipo
+
+Pau Albiol Duato y Vicent Benavent
+
+### Roles
+
+Pau Albiol Duato (Montaje en físico / Cableado y colocación de componentes / Programación y lógica del minijuego) Vicent Benavent (Montaje en Tinkercad)
 
 ## Plan de Sprints:
 
-### Sprint 1: Definir las mecánicas del juego (tiempo, presión, vidas y módulos), hacer el boceto del circuito en Tinkercad y subir las primeras versiones del código (temporizador y presión).
+### Sprint 1:
 
-### Sprint 2: Prototipo más avanzado (circuito completo en Tinkercad, LCD mostrando datos, lectura de potenciómetro, botón y teclado, implementación de Morse y safe cracker) y lista definitiva de sensores/actuadores.
+Definir las mecánicas del juego (tiempo, presión, vidas y módulos), hacer el boceto del circuito en Tinkercad y subir las primeras versiones del código (temporizador y presión).
 
-### LiveDemo: Funcionamiento del prototipo (en físico), explicar las reglas del juego (tiempo límite, gestión de presión y errores de código) y responder a las preguntas.
+### Sprint 2:
 
+Prototipo más avanzado (circuito completo en Tinkercad, LCD mostrando datos, lectura de potenciómetro, botón y teclado, implementación de Morse y safe cracker) y lista definitiva de sensores/actuadores.
+
+### LiveDemo:
+
+Funcionamiento del prototipo (en físico), explicar las reglas del juego (tiempo límite, gestión de presión y errores de código) y responder a las preguntas.
 
 ## Sprint 1
 
+
 ### Objetivo del sprint:
 Dejar definido el diseño del minijuego y tener un primer prototipo funcional en Tinkercad con tiempo y presión implementados.
-
 
 
 ## Diseño de mecánicas (Pau & Vicent)
