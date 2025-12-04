@@ -11,7 +11,7 @@ Pau Albiol Duato y Vicent Benavent
 
 ### Roles
 
-Pau Albiol Duato (Montaje en físico / Cableado y colocación de componentes / Programación y lógica del minijuego) Vicent Benavent (Montaje en Tinkercad)
+Pau Albiol Duato (Programación y lógica del minijuego) Vicent Benavent (Montaje en Tinkercad /Montaje en físico / Cableado y colocación de componentes)
 
 ## Plan de Sprints:
 
