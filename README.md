@@ -1,36 +1,36 @@
 
-## Arduino
+# Arduino
 
-### Objetivo
+**Objetivo**
 
 Hacer un minijuego de desactivación de bomba con Arduino, usando módulos de Código Morse y “caja fuerte” (safe cracker) contrarreloj.
 
-### Equipo
+## Equipo
 
 Pau Albiol Duato y Vicent Benavent
 
-### Roles
+## Roles
 
 Pau Albiol Duato (Programación y lógica del minijuego) Vicent Benavent (Montaje en Tinkercad /Montaje en físico / Cableado y colocación de componentes)
 
-## Plan de Sprints:
+# Plan de Sprints:
 
-### Sprint 1:
+## Sprint 1:
 
 Definir las mecánicas del juego (tiempo, presión, vidas y módulos), hacer el boceto del circuito en Tinkercad y subir las primeras versiones del código (temporizador y presión).
 
-### Sprint 2:
+## Sprint 2:
 
 Prototipo más avanzado (circuito completo en Tinkercad, LCD mostrando datos, lectura de potenciómetro, botón y teclado, implementación de Morse y safe cracker) y lista definitiva de sensores/actuadores.
 
-### LiveDemo:
+## LiveDemo:
 
 Funcionamiento del prototipo (en físico), explicar las reglas del juego (tiempo límite, gestión de presión y errores de código) y responder a las preguntas.
 
 ## Sprint 1
 
 
-### Objetivo del sprint:
+## Objetivo del sprint:
 Dejar definido el diseño del minijuego y tener un primer prototipo funcional en Tinkercad con tiempo y presión implementados.
 
 
@@ -246,9 +246,9 @@ void loop() {
 }
 ```
 
-## Sprint 2
+# Sprint 2
 
-### Objetivo del sprint
+## Objetivo del sprint
 
 Completar el prototipo del minijuego de desactivación de bomba, con el circuito en Tinkercad más avanzado y el código principal (Morse + safe cracker) ya implementado y funcional a nivel básico.
 
@@ -256,27 +256,27 @@ Completar el prototipo del minijuego de desactivación de bomba, con el circuito
 
 **Pau Albiol Duato**
 
-Ampliar y refactorizar el código de Arduino para integrar las mecánicas principales:
+ - Ampliar y refactorizar el código de Arduino para integrar las mecánicas principales:
 
-Módulo de “caja fuerte” (safe cracker) usando el potenciómetro.
+ - Módulo de “caja fuerte” (safe cracker) usando el potenciómetro.
 
-Conectar estos módulos con el sistema de tiempo, presión, vidas y tareas totales.
+ - Conectar estos módulos con el sistema de tiempo, presión, vidas y tareas totales.
 
-Probar el flujo completo de partida (aciertos/fallos, condiciones de victoria y derrota) y ajustar parámetros básicos de dificultad.
+ - Probar el flujo completo de partida (aciertos/fallos, condiciones de victoria y derrota) y ajustar parámetros básicos de dificultad.
 
 **Vicent Benavent**
 
-Completar el circuito en Tinkercad con todos los componentes definitivos (Arduino, LCD, potenciómetro, botón, teclado 4x4, zumbador, etc.).
+ - Completar el circuito en Tinkercad con todos los componentes definitivos (Arduino, LCD, potenciómetro, botón, teclado 4x4, zumbador, etc.).
 
-Revisar y mejorar el cableado para que sea coherente con el futuro montaje físico.
+ - Revisar y mejorar el cableado para que sea coherente con el futuro montaje físico.
 
-Subir capturas del circuito y el archivo del proyecto al repositorio.
+ - Subir capturas del circuito y el archivo del proyecto al repositorio.
 
-Pau Albiol Duato & Vicent Benabent
+**Pau Albiol Duato & Vicent Benavent**
 
-Elaborar y subir al repositorio la lista definitiva de sensores y componentes (hardware.md).
+ - Elaborar y subir al repositorio la lista definitiva de sensores y componentes (hardware.md).
 
-Actualizar el README con la evolución del proyecto, problemas encontrados y cómo se han resuelto, y las tareas pendientes para la LiveDemo.
+ - Actualizar el README con la evolución del proyecto, problemas encontrados y cómo se han resuelto, y las tareas pendientes para la LiveDemo.
 
 <img width="1173" height="743" alt="image" src="https://github.com/user-attachments/assets/c680c8d9-b291-43e6-853a-014b8bd691e9" />
 
@@ -311,7 +311,7 @@ Circuito en Tinkercad
 
  - Varios LEDs con sus resistencias en protoboard.
 
-Lista de sensores y componentes (hardware.md)
+## Lista de sensores y componentes (hardware.md)
 
 **Sensores / actuadores:**
 
@@ -343,13 +343,13 @@ Basado en el circuito de Tinkercad mostrado en img/circuito_sprint2.png.
 
 El LCD, el teclado 4x4, el potenciómetro, el pulsador, el zumbador y los LEDs están conectados a pines digitales/analógicos de la placa según dicho esquema.
 
-Lista de tareas pendientes para la LiveDemo:
+**Lista de tareas pendientes para la LiveDemo:**
 
-Montaje físico definitivo.
+ - Montaje físico definitivo.
 
-Ajuste de dificultad (velocidad de presión, tiempo disponible, margen de error en safe cracker).
+ - Ajuste de dificultad (velocidad de presión, tiempo disponible, margen de error en safe cracker).
 
-Pruebas finales de estabilidad.
+ - Pruebas finales de estabilidad.
 
 ## Code:
 
